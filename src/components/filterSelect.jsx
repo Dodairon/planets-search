@@ -8,7 +8,7 @@ function FilterSelect(props) {
       <select
         data-testid={ datatestid }
         value={ value }
-        onChange={ () => handleChange(value) }
+        onChange={ (event) => handleChange(event.target.value) }
       >
         {valuesArray.map((values, index) => (
           <option key={ index } value={ values }>{ values }</option>

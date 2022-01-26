@@ -8,6 +8,8 @@ function GlobalProvider({ children }) {
   const [column, setcolumn] = useState();
   const [comparison, setcomparison] = useState();
   const [value, setvalue] = useState();
+  const [search, setsearch] = useState();
+  const [saveinfo, setsaveinfo] = useState();
 
   useEffect(() => {
     const HandleApi = () => {
@@ -27,6 +29,10 @@ function GlobalProvider({ children }) {
         setcomparison,
         value,
         setvalue,
+        search,
+        setsearch,
+        saveinfo,
+        setsaveinfo,
       } }
     >
       { children }

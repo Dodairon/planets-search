@@ -1,17 +1,19 @@
 import React from 'react';
-import Header from './Header';
+import FilterHeader from './filterHeader';
+import InputSearch from './inputSearch';
 import TableBody from './TableBody';
 import TableHeader from './TableHeader';
 
 function Table() {
   return (
     <div>
-      <Header />
+      <h1>Projeto Star Wars - Trybe</h1>
+      <InputSearch />
+      <FilterHeader />
       <table>
         <TableHeader />
         <TableBody />
       </table>
-
     </div>
   );
 }

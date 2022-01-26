@@ -9,7 +9,7 @@ function FilterInput(props) {
         type="number"
         data-testid="value-filter"
         value={ value }
-        onChange={ () => handleChange(value) }
+        onChange={ (event) => handleChange(event.target.value) }
       />
     </div>
   );
@@ -17,7 +17,7 @@ function FilterInput(props) {
 
 FilterInput.propTypes = {
   handleChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
 };
 
 export default FilterInput;
