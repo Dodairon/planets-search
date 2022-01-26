@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 function FilterSelect(props) {
-  const { value, handleChange, datatestid } = props;
+  const { value, handleChange, datatestid, valuesArray } = props;
   return (
     <div>
       <select
@@ -22,6 +22,7 @@ FilterSelect.propTypes = {
   datatestid: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
+  valuesArray: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default FilterSelect;

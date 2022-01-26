@@ -11,32 +11,31 @@ function FilterHeader() {
     setcomparison,
     value,
     setvalue,
-  } = useContext(GlobalContext)
+  } = useContext(GlobalContext);
   return (
     <div>
-      <h1>teste</h1>
       <FilterSelect
         datatestid="column-filter"
         value={ column }
         handleChange={ setcolumn }
-        valuesArray={ }
+        valuesArray={ ['population',
+          'orbital_period',
+          'diameter',
+          'rotation_period',
+          'surface_water'] }
       />
       <FilterSelect
         datatestid="comparison-filter"
         value={ comparison }
         handleChange={ setcomparison }
-        valuesArray={ }
+        valuesArray={ ['maior que',
+          'menor que',
+          'igual a'] }
       />
       <FilterInput
         datatestid="value-filter"
-        value={ }
-        handleChange={ }
-      />
-      <FilterSelect
-        datatestid={ }
         value={ value }
         handleChange={ setvalue }
-        valuesArray={ }
       />
     </div>
   );

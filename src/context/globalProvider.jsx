@@ -12,7 +12,7 @@ function GlobalProvider({ children }) {
   useEffect(() => {
     const HandleApi = () => {
       getAPI()
-        .then((value) => setData(value));
+        .then((dataApi) => setData(dataApi));
     };
     HandleApi();
   }, []);
