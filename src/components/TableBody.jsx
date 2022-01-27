@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import GlobalContext from '../context/globalContext';
+import arrInfo from './helper';
 
 function TableBody() {
   const { data, search, filter } = useContext(GlobalContext);
@@ -10,32 +11,21 @@ function TableBody() {
   const filterName = (infoAPI, searchValue, filterArr) => {
     if (!infoAPI) return [];
     if (searchValue) {
-      return infoAPI.results
-        .filter((planet) => planet.name.includes(searchValue));
-    }
-    // if (filterArr.length > 0) {
-    //   const arrData = infoAPI.results
-    //     .filter((planet) => planet.name.includes(searchValue));
-    //   if (filterArr[0].comparison === 'maior que') {
-    //     return arrData
-    //       .filter((plan) => plan[filterArr[0].column] > Number(filterArr[0].value));
-    //   } if (filterArr[0].comparison === 'menor que') {
-    //     return arrData
-    //       .filter((plan) => plan[filterArr[0].column] < Number(filterArr[0].value));
-    //   }
-    //   return arrData
-    //     .filter((plan) => plan[filterArr[0].column] === (filterArr[0].value));
-    // }
-    if (filterArr.length > 0) {
-      const arrData = infoAPI.results;
-      if (filterArr[0].comparison === 'maior que') {
-        return arrData
-          .filter((plan) => plan[filterArr[0].column] > Number(filterArr[0].value));
-      } if (filterArr[0].comparison === 'menor que') {
-        return arrData
-          .filter((plan) => plan[filterArr[0].column] < Number(filterArr[0].value));
+      if (filterArr.length === 0) {
+        return infoAPI.results.filter((planet) => planet.name.includes(searchValue));
       }
-      return arrData.filter((plan) => plan[filterArr[0].column] === (filterArr[0].value));
+      if (filterArr.length > 0) {
+        const arrData1 = infoAPI.results
+          .filter((planet) => planet.name.includes(searchValue));
+        return arrInfo(filterArr, arrData1);
+      }
+    }
+    if (filterArr.length === 0) {
+      return infoAPI.results;
+    }
+    if (filterArr.length > 0) {
+      const arrData2 = infoAPI.results;
+      return arrInfo(filterArr, arrData2);
     }
     return infoAPI.results;
   };
