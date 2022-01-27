@@ -11,18 +11,31 @@ function FilterHeader() {
     setcomparison,
     value,
     setvalue,
+    filter,
   } = useContext(GlobalContext);
+
+  const valuesArr = [
+    'population',
+    'orbital_period',
+    'diameter',
+    'rotation_period',
+    'surface_water'];
+
+  function filterColum(data) {
+    return valuesArr.reduce((acc, curr) => {
+      if (data.every((value2) => value2.column !== curr)) {
+        acc.push(curr);
+      }
+      return acc;
+    }, []);
+  }
   return (
     <div>
       <FilterSelect
         datatestid="column-filter"
         value={ column }
         handleChange={ setcolumn }
-        valuesArray={ ['population',
-          'orbital_period',
-          'diameter',
-          'rotation_period',
-          'surface_water'] }
+        valuesArray={ filterColum(filter) }
       />
       <FilterSelect
         datatestid="comparison-filter"
