@@ -1,4 +1,5 @@
 import React from 'react';
+import FilterButton from './filterButton';
 import FilterHeader from './filterHeader';
 import InputSearch from './inputSearch';
 import TableBody from './TableBody';
@@ -10,6 +11,7 @@ function Table() {
       <h1>Projeto Star Wars - Trybe</h1>
       <InputSearch />
       <FilterHeader />
+      <FilterButton />
       <table>
         <TableHeader />
         <TableBody />
